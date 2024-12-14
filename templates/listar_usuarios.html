@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Lista de Usuários</h1>
+    <div style="display: flex; justify-content: center;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>EMAIL</th>
+                    <th>PROFISSÃO</th>
+                </tr>
+            </thead>
+
+            {% for usuario in usuarios %}
+                <tbody>
+                    <tr>
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.profissao }}</td>
+                        <td>
+                            <a href="/editar_usuario/{{ usuario.id }}"><button>Editar</button></a> 
+                            <a href="/deletar_usuario/{{ usuario.id }}" method="POST"><button>Excluir</button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+            
+
+
+        </table>
+    </div>
+</body>
+</html>
